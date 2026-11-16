@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="나만의 저녁 습관을 기록하는 NIGHT ZERO 챌린지">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NIGHT ZERO">
+<title>NIGHT ZERO</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#151f33;--panel2:#1b2941;--line:#2b3a55;--muted:#9aaac2;--blue:#a5c8ff;--green:#8be0b0;--amber:#f5b65b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0%,#182844 0,transparent 34%),var(--bg);color:#f4f7fc;font:15px/1.5 system-ui,-apple-system,"Noto Sans KR",sans-serif}
+.app{max-width:520px;margin:auto;padding:22px 16px calc(32px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}.brand{display:flex;align-items:center;gap:11px}.logo{width:42px;height:42px;border-radius:14px;background:#243653;display:grid;place-items:center;font-size:22px}.brand b{font-size:18px;letter-spacing:1.5px}.sub{font-size:10px;color:var(--muted);letter-spacing:1.4px}.pill{font-size:11px;color:var(--green);border:1px solid #315d4b;background:#17372f;padding:5px 9px;border-radius:99px}
+h1{font-size:30px;line-height:1.25;margin:8px 0}.accent{color:var(--blue)}.eyebrow{font-size:11px;color:var(--muted);letter-spacing:1px}.intro{margin-bottom:20px}.intro p,.muted{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}.stat,.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid #263650;border-radius:18px;padding:16px}.stat .ico{font-size:19px}.stat strong{display:block;font-size:27px;margin-top:4px}.stat small{color:var(--muted)}
+.card{margin:12px 0}.card h2{font-size:15px;margin:0 0 12px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.tag{font-size:11px;padding:4px 9px;border-radius:99px;background:#263b59;color:var(--blue)}.tag.ok{background:#17372f;color:var(--green)}
+button,input,textarea{font:inherit}button{border:0;border-radius:12px;padding:12px 14px;background:#a5c8ff;color:#101827;font-weight:700;cursor:pointer}button:active{transform:scale(.99)}button.secondary{background:#293a55;color:#e8effa;border:1px solid #3a4d6b}button.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}button:disabled{opacity:.4;cursor:not-allowed}.full{width:100%;margin-top:9px}
+.homebox{background:#101a2c;border:1px solid var(--line);border-radius:14px;padding:12px;margin:14px 0}.homebox .row{font-size:12px;color:var(--muted);margin-bottom:8px}
+.tasks{display:grid;gap:10px;margin:12px 0}.task{display:flex;align-items:center;gap:10px;color:#dce5f3;font-size:14px}.task input{width:18px;height:18px;accent-color:#8be0b0}
+textarea,input[type=number]{width:100%;background:#0f192b;border:1px solid var(--line);border-radius:11px;color:#fff;padding:11px;outline:none}textarea{resize:vertical;min-height:76px}label.small{display:block;font-size:12px;color:var(--muted);margin:8px 0 5px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}.day{font-size:11px;color:var(--muted)}.dot{margin:7px auto 0;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#26344c;color:#aab7cb;font-size:11px}.dot.success{background:#27634e;color:#c6f5dc}.dot.flex{background:#66502c;color:#ffe0a3}.dot.today{outline:1px solid var(--blue)}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}.calday{min-height:39px;display:grid;place-items:center;border-radius:10px;background:#111c2e;color:#c4d0e2;font-size:12px}.calday.blank{background:transparent}.calday.success{background:#20543f;color:#c6f5dc}.calday.flex{background:#5b4828;color:#ffe0a3}.calday.today{outline:1px solid var(--blue)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-top:10px}.legend span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:#27634e}.legend span.flexkey:before{background:#9a773d}
+.barwrap{display:flex;align-items:end;gap:8px;height:105px;margin-top:10px}.barcol{flex:1;text-align:center;font-size:10px;color:var(--muted)}.bar{height:70px;display:flex;align-items:end;background:#111c2e;border-radius:8px;overflow:hidden}.bar i{display:block;width:100%;background:#78b99a;border-radius:8px 8px 0 0}.barcol small{display:block;margin-top:5px}
+.footer{text-align:center;color:#7f91ad;font-size:11px;padding:20px 0 8px}.notice{font-size:11px;color:#9eacc1;margin-top:10px}.hidden{display:none}
+@media(min-width:520px){.app{padding-top:30px}}
+</style>
+</head>
+<body>
+<main class="app">
+<header><div class="brand"><div class="logo">☾</div><div><b>NIGHT ZERO</b><div class="sub">YOUR NIGHT, YOUR CHOICE</div></div></div><span class="pill">PERSONAL CHALLENGE</span></header>
+<section class="intro"><div class="eyebrow" id="todayLabel"></div><h1>오늘 밤도,<br><span class="accent">나답게 마무리하기.</span></h1><p>작은 습관을 관찰하고, 내게 맞는 저녁 루틴을 만들어 봐요.</p></section>
+<section class="stats">
+<div class="stat"><span class="ico">🔥</span><strong id="streak">0일</strong><small>현재 연속 성공</small></div>
+<div class="stat"><span class="ico">🏆</span><strong id="total">0회</strong><small>누적 성공</small></div>
+</section>
+<section class="card">
+<div class="row"><h2>TODAY'S CHALLENGE</h2><span class="tag" id="statusTag">진행 전</span></div>
+<strong style="font-size:18px">오늘의 저녁 습관 기록</strong><p class="muted">습관적으로 먹는 야식을 줄이고, 내 몸의 신호와 저녁 컨디션을 살펴봐요.</p>
+<div class="homebox"><div class="row"><span>귀가 상태</span><b id="homeText">아직 귀가 전</b></div><button class="full secondary" id="homeBtn">집에 도착했어요</button></div>
+<h2>저녁 루틴</h2><div class="tasks" id="tasks">
+<label class="task"><input type="checkbox"> 물 한 잔 마시기</label>
+<label class="task"><input type="checkbox"> 편안한 옷으로 갈아입기</label>
+<label class="task"><input type="checkbox"> 씻고 휴식하기</label>
+<label class="task"><input type="checkbox"> 내일 할 일 정리하기</label>
+</div>
+<label class="small" for="note">오늘의 메모</label><textarea id="note" placeholder="오늘 하루의 기분이나 야식 생각이 났던 순간을 기록해 보세요."></textarea>
+<button class="full" id="successBtn">✓ 오늘 챌린지 성공</button>
+<button class="full secondary" id="flexBtn">오늘은 유연하게 마무리하기</button>
+<p class="notice">배가 고프다면 필요한 만큼 먹어도 괜찮아요. 건강한 습관은 무조건 참는 것이 아니라 몸의 신호를 살피는 데서 시작해요.</p>
+</section>
+<section class="card"><div class="row"><h2>이번 주 기록</h2><span class="tag" id="weekCount">0회 성공</span></div><div class="week" id="week"></div></section>
+<section class="card"><div class="row"><h2>월간 캘린더</h2><div class="row"><button class="ghost" id="prevMonth" aria-label="이전 달">‹</button><b id="monthTitle"></b><button class="ghost" id="nextMonth" aria-label="다음 달">›</button></div></div><div class="calendar" id="calendar"></div><div class="legend"><span>성공</span><span class="flexkey">유연한 마무리</span></div></section>
+<section class="card"><div class="row"><h2>주간 성공률</h2><span class="tag" id="rate">0%</span></div><div class="barwrap" id="bars"></div></section>
+<section class="card"><h2>챌린지 목표 설정</h2><p class="muted">목표는 부담 없이 현실적으로 설정해요. 쉬는 날을 포함해도 괜찮아요.</p><label class="small" for="goal">이번 달 목표 성공 횟수</label><input id="goal" type="number" min="1" max="31" value="15"><button class="full secondary" id="saveGoal">목표 저장</button><p class="muted" id="goalProgress">이번 달 목표 달성 현황을 표시합니다.</p></section>
+<div class="footer">ONE NIGHT AT A TIME · NIGHT ZERO</div>
+</main>
+<script>
+const KEY='night-zero-v1';
+const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const blank=()=>({records:{},goal:15,home:{},tasks:{},notes:{}});
+let data;try{data=JSON.parse(localStorage.getItem(KEY))||blank()}catch{data=blank()}
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function recordDay(s){const d=today();data.records[d]=s;save();render()}
+function dateObj(s){const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)}
+function fmt(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function consecutive(){let n=0, d=dateObj(today());while(true){const s=data.records[fmt(d)];if(s!=='success')break;n++;d.setDate(d.getDate()-1)}return n}
+function monthSuccess(y,m){return Object.entries(data.records).filter(([k,v])=>{const d=dateObj(k);return d.getFullYear()===y&&d.getMonth()===m&&v==='success'}).length}
+let view=new Date();view.setDate(1);
+document.getElementById('todayLabel').textContent=new Intl.DateTimeFormat('ko-KR',{weekday:'long',year:'numeric',month:'long',day:'numeric'}).format(new Date()).toUpperCase();
+document.getElementById('homeBtn').onclick=()=>{data.home[today()]=!data.home[today()];save();render()};
+document.getElementById('successBtn').onclick=()=>{if(!data.home[today()]){alert('먼저 귀가 상태를 체크해 주세요.');return}recordDay('success')};
+document.getElementById('flexBtn').onclick=()=>recordDay('flex');
+document.getElementById('note').addEventListener('input',e=>{data.notes[today()]=e.target.value;save()});
+document.querySelectorAll('#tasks input').forEach((el,i)=>{el.onchange=()=>{const a=data.tasks[today()]||[false,false,false,false];a[i]=el.checked;data.tasks[today()]=a;save()}});
+document.getElementById('saveGoal').onclick=()=>{data.goal=Math.max(1,Math.min(31,Number(document.getElementById('goal').value)||15));save();render()};
+document.getElementById('prevMonth').onclick=()=>{view.setMonth(view.getMonth()-1);renderCalendar()};
+document.getElementById('nextMonth').onclick=()=>{view.setMonth(view.getMonth()+1);renderCalendar()};
+function renderCalendar(){const y=view.getFullYear(),m=view.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();document.getElementById('monthTitle').textContent=`${y}.${String(m+1).padStart(2,'0')}`;let h='';for(let i=0;i<first;i++)h+='<div class="calday blank"></div>';for(let d=1;d<=days;d++){const k=fmt(new Date(y,m,d)),s=data.records[k]||'',cls=s==='success'?'success':s==='flex'?'flex':'';h+=`<div class="calday ${cls} ${k===today()?'today':''}" title="${s==='success'?'성공':s==='flex'?'유연한 마무리':'기록 없음'}">${d}</div>`}document.getElementById('calendar').innerHTML=h}
+function render(){const t=today(),s=data.records[t]||'';document.getElementById('streak').textContent=consecutive()+'일';document.getElementById('total').textContent=Object.values(data.records).filter(v=>v==='success').length+'회';document.getElementById('statusTag').textContent=s==='success'?'성공':s==='flex'?'유연하게 마무리':'진행 중';document.getElementById('statusTag').className='tag '+(s==='success'?'ok':'');document.getElementById('homeText').textContent=data.home[t]?'귀가 완료':'아직 귀가 전';document.getElementById('homeBtn').textContent=data.home[t]?'귀가 상태 변경':'집에 도착했어요';document.getElementById('successBtn').disabled=s==='success';document.getElementById('flexBtn').disabled=s==='flex';document.getElementById('note').value=data.notes[t]||'';document.querySelectorAll('#tasks input').forEach((el,i)=>el.checked=(data.tasks[t]||[])[i]||false);document.getElementById('goal').value=data.goal||15;renderCalendar();renderWeek();const count=monthSuccess(new Date().getFullYear(),new Date().getMonth());document.getElementById('goalProgress').textContent=`이번 달 ${count}회 성공 · 목표 ${data.goal||15}회`;}
+function renderWeek(){const now=new Date(),dow=now.getDay(),mon=new Date(now);mon.setDate(now.getDate()-(dow===0?6:dow-1));let success=0,html='',vals=[];for(let i=0;i<7;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);const k=fmt(d),s=data.records[k]||'';if(s==='success')success++;vals.push(s==='success'?1:0);html+=`<div><div class="day">${'월화수목금토일'[i]}</div><div class="dot ${s==='success'?'success':s==='flex'?'flex':''} ${k===today()?'today':''}">${s==='success'?'✓':s==='flex'?'·':d.getDate()}</div></div>`}document.getElementById('week').innerHTML=html;document.getElementById('weekCount').textContent=success+'회 성공';document.getElementById('rate').textContent=Math.round(success/7*100)+'%';document.getElementById('bars').innerHTML=vals.map((v,i)=>`<div class="barcol"><div class="bar"><i style="height:${v?100:5}%"></i></div><small>${'월화수목금토일'[i]}</small></div>`).join('')}
+render();
+</script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(console.error)); }</script>
+</body></html>
